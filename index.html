@@ -1,9 +1,14 @@
 <html class="translated-ltr">
 <head>
-<title>Mạch Wifi 789</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, minimal-ui">
+	<meta name="theme-color" content="#36393E">
+
+	<meta name="description" content="244v234">
+	<title>Mạch wifi cf789</title>
 <style>
 
+<!--
 /* @group Blink */
 .blink {
  -webkit-animation: blink 1.75s linear infinite;
@@ -43,51 +48,485 @@
  100% { opacity: 0; }
 }
 /* @end */
+-->
 
-    body { 
-        background-color: #ffffff;
-    }
+/* Global */
+body {
+	background: #ffffff;
+	color: #000000;
+	font-family: sans-serif;
+	margin: 0;
+}
 
-    #content {
-        font-family: monospace, prestige;
-        width: 800px;
-        padding: 5px 40px 20px 20px;
-        font-size: 20px;
-        background-color: white;
-        text-align: left;
-        border: 2px solid grey;
-    }
+h1 {
+	font-size: 1.7rem;
+    margin-top: 1rem;
+    background: #e3e3e3;
+    color: #363636;
+    padding: 0.2em 1em;
+    border-radius: 3px;
+	border-left: solid #363636 5px;
+    font-weight: 100;
+}
 
-    a {
-        color: #006d91;
-    }
+h2 {
+	font-size: 1.1rem;
+    margin-top: 1rem;
+    background: #e3e3e3;
+    color: #363636;
+    padding: 0.4em 1.8em;
+    border-radius: 3px;
+	border-left: solid #363636 5px;
+    font-weight: 100;
+}
 
-    #menu {
-        font-family: Arial, Helvetica, Sans-Serif;
-        padding-top: 2em;
-        padding-bottom: 0.1em;
-        font-size: 22px;
-        color: #006d91;
-    }
+table{
+	border-collapse: collapse;
+}
 
-    #menu a {
-        text-decoration: none;
-    }
+label{
+	line-height: 38px;
+}
 
-    h1 { 
-        padding-top: 8px;
-        font-size: 25px;
-    }
+p{
+	margin: 0.5em 0;
+}
 
-    h2 { 
-        padding-top: 5px;
-        font-size: 16px;
-    }
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.bold {
+	font-weight: bold;
+}
+.red{
+	color: #ffffff;
+}
+.green{
+	color:#43B581;
+}
+.clear {
+	clear: both;
+}
+.centered{
+	text-align: center;
+}
+.select{
+	width: 98px !important;
+	padding: 0 !important;
+}
+.selected{
+	background: #54d64d;
+}
+.status{
+	width: 120px;
+	padding-left: 8px;
+}
+.labelFix {
+	line-height: 44px;
+}
+.clickable{
+	cursor: pointer;
+}
+.settingName{
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: underline;
+}
 
-    ul, ol {
-        list-style-position: inside;
-        padding-left: 15px;
-    }
+#status {
+	text-align: center;
+	text-transform: capitalize;
+	padding: 5px;
+	color: #fff;
+	position: sticky;
+	top: 0;
+	z-index: 99;
+}
+
+#closeError{
+	float: right;
+	color: #fff;
+	padding: 0px 10px;
+	cursor: pointer;
+}
+
+#dieu-khoan {
+    width: 50%;
+    height: 100px;
+    border: 1px solid #000;
+}
+
+footer {
+	font-size: .95em;
+	text-align: center;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+/* ===== CHECKBOX ===== */
+/* Customize the label (the container) */
+.checkBoxContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 32px;
+}
+
+/* Hide the browser's default checkbox */
+.checkBoxContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  height: 28px;
+  width: 28px;
+  background-color: #7a7a7a;
+  border-radius: 4px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkBoxContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+
+.checkBoxContainer .checkmark:after {
+  left: 10px;
+  top: 7px;
+  width: 4px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* ERROR */
+.hide {
+	display: none;
+}
+
+.show {
+	display: block !important;
+	animation-name: fadeIn;
+	animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+	0%   {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+
+hr {
+	background: #3e4146;
+}
+
+a {
+	color: #5281bb;
+    text-decoration: none;
+}
+
+a:hover {
+	color: #95b8e4;
+}
+
+li{
+	margin: 4px 0;
+}
+
+/* Meter */
+.meter_background{
+	background: #42464D;
+	width: 100%;
+	word-break: normal;
+	min-width: 100px;
+}
+.meter_forground{
+	color: #fff;
+	padding: 4px 0;
+	/* + one of the colors below
+	(width will be set by the JS) */
+}
+.meter_green{
+	background: #43B581;
+}
+.meter_orange{
+	background: #FAA61A;
+}
+.meter_red{
+	background: #F04747;
+}
+.meter_value{
+	padding-left: 8px;
+}
+
+
+/* Tables */
+table {
+	width: 100%;
+	min-width: 400px;
+	margin-bottom: 2em;
+}
+
+td{
+	word-break: break-all;
+}
+
+th{
+	word-break: break-word;
+}
+
+th, td {
+    padding: 10px 6px;
+	text-align: left;
+    border-bottom: 1px solid #5d5d5d;
+}
+
+@media screen and (max-width: 820px) {
+	#apTable .id,
+	#apTable .enc,
+	#apTable .mac,
+	#apTable .vendor,
+	#apTable .name,
+
+	#stTable .id,
+	#stTable .pkts,
+	#stTable .lastseen,
+	#stTable .mac,
+
+	#nTable .id,
+	#nTable .vendor,
+	#nTable .ap,
+	#nTable .mac,
+
+	#passwordTable .verify,
+
+	#ssidTable .id	{
+	  display: none;
+	}
+
+	.meter_background{
+		min-width: 45px;
+	}
+}
+
+nav {
+	display: block;
+	background: #ffffff;
+	font-weight: bold;
+	padding: 0 10px;
+}
+  
+nav a {
+	color: inherit;
+	padding: 0 .5em;
+}
+
+.menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	display:block;
+}
+
+.menu li {
+	margin: 10px 20px 10px 0;
+	display: inline-block;
+}
+
+.menu li:last-child {
+	float: right;
+}
+
+/* Inputs and buttons */
+.upload-script, .button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+	display: inline-block;
+	height: 38px;
+	padding: 0 20px;
+	color:#fff;
+	text-align: center;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 38px;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	white-space: nowrap;
+	background: #747780;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+	background: #5170cf;
+}
+button:active, input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active {
+	transform: scale(.93);
+}
+button:disabled:hover, input[type="submit"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="button"]:disabled:hover {
+	background: white;
+	cursor: not-allowed;
+	opacity: 0.40;
+	filter: alpha(opacity=40);
+	transform: scale(1);
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+/* Forms */
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea, select {
+	height: 38px;
+	padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+	background-color: #757575;
+	border-radius: 4px;
+	box-shadow: none;
+	box-sizing: border-box;
+	color: #ffffff;
+	border: none;
+	width: 5em;
+}
+
+input[type="text"]{
+	width: 10em;
+}
+
+.setting {
+	width: 100% !important;
+	max-width: 284px !important;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* ==== GRID SYSTEM ==== */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1140px;
+}
+
+.row {
+  position: relative;
+  width: 100%;
+}
+
+.row [class^="col"] {
+  float: left;
+  margin: 0.25rem 2%;
+  min-height: 0.125rem;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+  width: 96%;
+}
+
+.row::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.hidden-sm {
+  display: none;
+}
+
+@media only screen and (min-width: 24em) {
+  .col-1 {
+    width: 4.33%;
+  }
+
+  .col-2 {
+    width: 12.66%;
+  }
+
+  .col-3 {
+    width: 21%;
+  }
+
+  .col-4 {
+    width: 29.33%;
+  }
+
+  .col-5 {
+    width: 37.66%;
+  }
+
+  .col-6 {
+    width: 46%;
+  }
+
+  .col-7 {
+    width: 54.33%;
+  }
+
+  .col-8 {
+    width: 62.66%;
+  }
+
+  .col-9 {
+    width: 71%;
+  }
+
+  .col-10 {
+    width: 79.33%;
+  }
+
+  .col-11 {
+    width: 87.66%;
+  }
+
+  .col-12 {
+    width: 96%;
+  }
+
+  .hidden-sm {
+    display: block;
+  }
+}
+
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2681486354588893"
      crossorigin="anonymous"></script>
@@ -124,18 +563,18 @@
 <p>1. Cấp nguồn cho thiết bị bằng sạc dự phòng, hoặc cục sạc điện thoại thông thường.</p>
 <p>2. Kết nối với wiﬁ <span style="color:red;">244v234</span> do thiết bị phát ra, mật khẩu: <span style="color:red;">abcd1234</span></p>
 <p>3. Sau khi kết nối thành công, mở ứng dụng duyệt web: chrome, safari, ﬁrefox,opera...... Sau đó truy cập vào <span style="color:red;">1.2.3.4</span>(Trong trường hợp bạn truy 1.2.3.4 nhưng không hiện giao diện điều khiển. Vui lòng vào web ở chế độ riêng tư - hay còn gọi là ẩn danh.)</p>
-<img width="40%" src="1.jpg"></img><br><br><br>
+<img width="30%" src="1.jpg"></img><br><br><br>
 <p>5. Nếu muốn tìm lại các mạng wifi xung quanh, bấm vào “TÌM KIẾM WIFI XUNG QUANH”. Sau đó tích vào các mạng wifi mà bạn muốn "Ngắt kết nối". Sau đó bấm vào mục "Tính Năng"(nếu muốn l*y mật khẩu wifi, bạn chỉ được tích vào 1 mạng duy nhất).</p>
-<img width="100%" src="2.jpg"></img><br><br><br>
+<img width="60%" src="2.jpg"></img><br><br><br>
 <p>6. Bấm “START” ở tính năng "Ngắt Kết Nối". Lúc này đèn led trên thiết bị sẽ sáng lên. Và những người hát karaoke vô ý thức sẽ bị mất kết nối wifi nhà họ. Sau đó bạn bấm "TẮT WIFI ĐIỀU KHIỂN" để tránh sự nhòm ngó của những người hát karaoke vô ý thức.</p>
 <marquee>Mua hàng vui lòng truy cập <a href="https://shope.ee/AqBgQiS7V" target="_blank">Shopee.vn/244v234</a></marquee>
-<img width="100%" src="3.jpg"></img><br><br><br>
+<img width="60%" src="3.jpg"></img><br><br><br>
 <p>7. Nếu bấm "START" ở tính năng "l*y Mật Khẩu", wifi điều khiển 244v234 sẽ biến mất, và sinh ra wifi nhái giống với wifi bạn chọn, để dụ hàng xóm truy cập.<br><br>- Nếu hàng xóm không nhập chính xác mật khẩu wifi nhà họ, thì wifi nhà họ sẽ bị ngắt kết nối liên tục.<br><br>
 - Còn nếu hàng xóm nhập chính xác mật khẩu wifi nhà họ, wifi nhái sẽ biến mất. Và lúc này wifi nhà họ sẽ sử dụng được bình thường.<br><br>
 - Nếu bạn muốn xem mật khẩu đã l*y được, bạn rút nguồn ra cắm lại, lúc này wifi điều khiển 244v234 sẽ hiện lên. Bạn truy cập vào giao diện điều khiển, và vào mục "Mật Khẩu Wifi" để xem mật khẩu wifi đã l*y được.</p>
-<img width="40%" src="4.jpg"></img><br>
+<img width="20%" src="4.jpg"></img><br>
 <br><br>Giao diện l*y tài khoản Facebook và Google<br><br>
-<img width="40%" src="6.jpg"></img><br>
+<img width="20%" src="6.jpg"></img><br>
 <P>Video giới thiệu tính năng l*y tài khoản Facebook và Google<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/897p0wArGgw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br><br>
@@ -144,7 +583,7 @@
 	<p>-	Hướng anten của thiết bị về phía nhà hàng xóm.</p>
 	<p>-	Số âm ở cột sóng càng nhỏ (màu xanh lá), thì modem wiﬁ hàng xóm càng gần với bạn.</p>
 	<p>-	19h - 22h là thời điểm l*y mật khẩu wiﬁ hiệu quả nhất! Vì thời điểm này nhà hàng xóm có nhiều người đang kết nối wiﬁ.</p>
-	<p>-	Cần tư vấn hoặc hỗ trợ vui lòng nhắn messenger cho mình https://m.me/qcvfvn</p>
+	<p>-	Cần tư vấn hoặc hỗ trợ vui lòng nhắn zalo cho mình 0971.2tám2.3ba6</p>
 <marquee>Mua hàng vui lòng truy cập <a href="https://shope.ee/AqBgQiS7V" target="_blank">Shopee.vn/244v234</a></marquee>
 <h1>Cách phòng tránh:</h1>
 <li>Sử dụng modem với chuẩn wifi AC</li>
@@ -162,23 +601,23 @@
 <p> - ESP8266Flasher cho Windows x64 (64 bit), tải về <a href="https://github.com/ngocthuong234/ngocthuong234/raw/main/ESP8266Flasher.exe">tại đây.</a></p>
 <p> - Phần mềm đăng ký key cho thiết bị KeyServerSing.bin, tải về <a href="https://github.com/ngocthuong234/ngocthuong234/raw/main/KeyServerSing.bin">tại đây.</a></p>
 <li>Cài Driver sau đó mở chương trình ESP8266Flasher.exe</li><br>
-<img width="80%" src="flash1.jpg"></img><br><br>
+<img width="40%" src="flash1.jpg"></img><br><br>
 <li>Chọn vào "Config" - sau đó bấm vào bánh răng giống như hình dưới. Chọn file KeyServerSing.bin bạn vừa tải về.</li><br>
-<img width="80%" src="flash2.jpg"></img><br><br>
+<img width="40%" src="flash2.jpg"></img><br><br>
 <li>Chọn vào "Operation" - sau đó bấm vào COM port, chọn COM của bạn.</li><br>
 <li>Bấm vào FLASH giống như hình dưới</li><br>
-<img width="80%" src="flash3.jpg"></img><br><br>
+<img width="40%" src="flash3.jpg"></img><br><br>
 <li>Chờ chương trình nạp xong và hiển thị dấu tích màu xanh giống như hình dưới là xong.</li><br>
-<img width="80%" src="flash4.jpg"></img><br><br>
+<img width="40%" src="flash4.jpg"></img><br><br>
 <li>Sau khi nạp xong, bạn cấp nguồn cho thiết bị, và truy cập vào wifi 244v234 do thiết bị phát ra.</li><br>
 <li>Trong trường hợp điện thoại của không tự hiện giống hình dưới, bạn mở trình duyệt web rồi truy cập 1.2.3.4 là được.</li><br>
-<img width="30%" src="flash5.jpg"></img><br><br>
+<img width="15%" src="flash5.jpg"></img><br><br>
 <li>Bạn chọn mạng wifi nhà bạn, sau đó nhập chính xác mật khẩu và bấm vào "Kết Nối" là xong.</li><br>
 <li>Lúc này thiết bị sẽ tự kết nối về server của mình và đăng ký key mới cho thiết bị của bạn</li><br>
-<img width="30%" src="flash6.jpg"></img><br><br>
-<li>Bạn để ý đồng hồ xem lúc bạn bấm "Kết Nối" là mấy giờ, rồi nhắn messenger cho mình https://m.me/qcvfvn - đồng thời vào ứng dụng shopee chụp ảnh đơn hàng mua của bên mình.</li>
+<img width="15%" src="flash6.jpg"></img><br><br>
+<li>Bạn để ý đồng hồ xem lúc bạn bấm "Kết Nối" là mấy giờ, rồi nhắn zalo cho mình 0971.2tám2.3ba6, đồng thời vào ứng dụng shopee chụp ảnh đơn hàng mua của bên mình.</li>
 <li>Nếu thông tin hợp lệ, đến 9h tối thiết bị của bạn sẽ được nâng cấp tự động lên phiên bản phần mềm 6.4 - Phát hành 2.10.2022</li>
-<img width="30%" src="flash7.jpg"></img><br><br>
+<img width="15%" src="flash7.jpg"></img><br><br>
 </div>
 </center>
 </body></html>
