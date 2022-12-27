@@ -554,16 +554,195 @@ input[type="file"] {
 <p class="tab blink"><span style="color:red;"><span style="color:red;">Vui lòng sử dụng có trách nhiệm, chỉ sử dụng khi thực sự cần thiết!</span></p>
 <h1>Tính Năng Dòng Lệnh</h1>
 <p>
-Đây là tính năng nâng cao, dành cho khách hàng muốn có những trải nghiệm mới lạ với thiết bị.
-Bạn sẽ sử dụng câu lệnh để điều khiển thiết bị thay vì thao tác trên giao diện web.<br> 
-Đặc biệt bạn có thể viết kịch bản, và thiết bị sẽ thực hiện theo mỗi khi thiết bị khởi động.<br>
-Giải thích thêm về khả năng thực hiện theo kịch bản: Mỗi khi thiết bị khởi động, nó sẽ đọc tất cả các lệnh được lưu trong tệp <span style="color:red;">autostart.txt</span><br>
+<li>Đây là tính năng nâng cao, dành cho khách hàng muốn có những trải nghiệm mới lạ với thiết bị.<br></li>
+<li>Bạn sẽ sử dụng câu lệnh để điều khiển thiết bị thay vì thao tác trên giao diện web.<br> </li>
+<li>Đặc biệt bạn có thể viết kịch bản, và thiết bị sẽ thực hiện theo mỗi khi thiết bị khởi động.<br></li>
+<li>Giải thích thêm về khả năng thực hiện theo kịch bản: Mỗi khi thiết bị khởi động, nó sẽ đọc tất cả các lệnh được lưu trong tệp <span style="color:red;">autostart.txt</span><br><br></li>
 Ví dụ, tôi muốn mỗi khi thiết bị khởi động, nó sẽ tự tìm kiếm mạng wifi xung quanh, cứ 60 giây tự tìm kiếm lại, sau đó ngắt kết nối tất cả các mạng wifi đã tìm được.<br>
-Lệnh:
-<span style="color:yellow;">write autostart.txt scan ap -c 60s</span> "nhấn phím enter"<br>
-write autostart.txt attack -da "nhấn phím enter"<br>
-<br>Muốn xem a<span style="color:red;">utostart.txt</span> đang có nhưng lệnh nào bạn gõ:<br>
-print autostart.txt "nhấn phím enter"<br><br>
+Gõ lệnh:<br>
+<span style="color:blue;">write autostart.txt scan ap -c 60s</span> "nhấn phím enter"<br>
+<span style="color:blue;">write autostart.txt attack -da</span> "nhấn phím enter"<br>
+<br>Muốn xem <span style="color:red;">autostart.txt</span> đang có nhưng lệnh nào bạn gõ:<br>
+print autostart.txt  "nhấn phím enter"<br><br><br>
+Để xem danh sách lệnh hiện có bạn gõ: <span style="color:blue;">help </span> "nhấn phím enter"<br>
+<h3>Dưới đây là danh sách lệnh hiện có của thiết bị</h3>
+<span style="color:blue;"><code>startap [-p &lt;path][-s &lt;ssid&gt;] [-pswd &lt;password&gt;] [-ch &lt;channel&gt;] [-h] [-cp]</code></span> <br>
+Bắt đầu quét với các tham số đã cho.<br>
+Chế độ (tùy chọn, mặc định = tất cả):<br>
+(-a) tất cả <br>
+(-ap)chỉ tìm kiếm wifi <br>
+(-st)chỉ tìm kiếm các thiết bị đang kết nối<br>
+(-w) tìm wifi và các thiết bị đang kết nối với nó<br>
+Chế độ phải là tham số đầu tiên! time [-t] (tùy chọn, mặc định = 15s): Khoảng thời gian nó sẽ quét các thiết bị đang kết nối với wifi (thiết bị khách) tính bằng giây.<br>
+continue [-c] (tùy chọn): Bao nhiêu giây cho đến khi quét lại.<br>
+channel [-ch] (tùy chọn): Chỉ quét trên một kênh cụ thể thay vì tự động duyệt qua chúng.<br>
+Để quét vô thời hạn, hãy đặt thời gian thành 0, tức là scan stations -t 0.<br>
+Sự khác biệt giữa chế độ stations và chế độ wifi là chế độ stations sẽ chỉ quét trên các kênh được sử dụng bởi ít nhất một mạng wifi.<br>
+Chế quét wifi cũng không yêu cầu quét mạng wifi trước và được khuyến nghị sử dụng tính năng giám sát gói và phát hiện deauth.<br>
+<br>
+<span style="color:blue;"><code>show [&lt;all/aps/stations/names/ssids&gt;]</code></span> <br>
+<span style="color:blue;"><code>show selected [&lt;all/aps/stations/names/ssids&gt;]</code></span> <br>
+In kết quả quét (mạng wifi và thiết bị đang kết nối với wifi), tên thiết bị đã lưu.<br>
+Đã chọn (tùy chọn, mặc định = sai): Chỉ các mục tiêu đã chọn được in.<br>
+Các loại (tùy chọn, mặc định = tất cả):<br>
+tất cả (-a)<br>
+áp (-ap)<br>
+thiết bị đang kết nối với wifi (-st)<br>
+tên (-b)<br>
+ssid (-ss)<br>
+<br>
+<span style="color:blue;"><code>select [&lt;all/aps/stations/names&gt;] [&lt;id&gt;]</code></span> <br>
+<span style="color:blue;"><code>deselect [&lt;all/aps/stations/names&gt;] [&lt;id&gt;]</code></span> <br>
+(De)Chọn một hoặc tất cả các mạng wifi, thiết bị đang kết nối với wifi và tên thiết bị đã lưu.<br>
+Các loại (tùy chọn, mặc định = tất cả):<br>
+tất cả (-a)<br>
+áp (-ap)<br>
+thiết bị đang kết nối với wifi (-st)<br>
+tên (-b)<br>
+ID (tùy chọn): ID của wifi/thiết bị đang kết nối với wifi/thiết bị bạn muốn chọn.<br><br>
+
+<br>
+<span style="color:blue;"><code>add name &lt;name&gt; -ap &lt;id&gt; [-s] [-f]</code></span> <br>
+<span style="color:blue;"><code>add name &lt;name&gt; -st &lt;id&gt; [-s] [-f]</code></span> <br>
+<span style="color:blue;"><code>add name &lt;name&gt; -m &lt;mac&gt; [-ch &lt;channel&gt;] [-b &lt;bssid&gt;] [-s] [-f]</code></span> <br>
+Lưu thiết bị với tên và thông số đã cho.<br>
+name [-n] : Tên bạn muốn đặt cho thiết bị (tối đa 16 ký tự<br>
+ap [-ap] : Điểm truy cập muốn lưu.<br>
+thiết bị đang kết nối với wifi [-st] : Trạm bạn muốn lưu.<br>
+mac [-m] : Địa chỉ MAC của thiết bị.<br>
+kênh [-ch] (tùy chọn, mặc định = kênh hiện tại): Kênh thiết bị đang bật.<br>
+bssid [-b] (tùy chọn, mặc định = NULL): Địa chỉ MAC của mạng wifi được kết nối.<br>
+select [-s] (tùy chọn, mặc định = false): Chọn thiết bị sau khi thêm.<br>
+buộc [-f](tùy chọn, mặc định = false): Bắt buộc thêm tên, ngay cả khi danh sách đã đầy.<br>
+<br>
+
+<span style="color:blue;"><code>replace name &lt;id&gt; [-n &lt;name&gt;] [-m &lt;mac&gt;] [-ch &lt;channel&gt;] [-b &lt;bssid&gt;] [-s]</code></span> <br>
+Xóa tên có ID đã cho và tạo tên mới với các tham số đã cho.<br>
+<br>
+
+<span style="color:blue;"><code>set name &lt;id&gt; &lt;newname&gt;</code></span> <br>
+Thay đổi tên của thiết bị đã lưu.<br>
+id : ID của tên đã lưu mà bạn muốn thay đổi.<br>
+newname : Tên mới bạn muốn đặt cho thiết bị đó.<br>
+<br>
+<span style="color:blue;"><code>load [&lt;all/ssids/names/settings&gt;] [&lt;file&gt;]</code></span> <br>
+<span style="color:blue;"><code>save [&lt;all/ssids/names/settings&gt;] [&lt;file&gt;]</code></span> <br>
+Tải/lưu danh sách tên thiết bị và cài đặt.<br>
+Các loại (tùy chọn, mặc định = tất cả):<br>
+tất cả (-a)<br>
+tên (-n)<br>
+<br>
+<span style="color:blue;"><code>remove &lt;ap/station/name/ssid&gt; &lt;id&gt;</code></span> <br>
+Dùng để xoá :<br>
+ap (-ap) :mạng wifi<br>
+station (-st): các thiết bị đang kết nối.<br>
+name (-n): tên mà bạn đã đặt cho mạng wifi hoặc thiết bị nào đó.<br>
+<br>
+<span style="color:blue;"><code>remove &lt;ap/station/names/ssids&gt; [all]</code></span> <br>
+Xóa mọi thứ khỏi danh sách đã chọn.<br>
+all [-a] (tùy chọn, mặc định = true): Xóa tất cả.<br>
+<br>
+Ngắt kết nối: deauth và Ngắt kết nối tất cả deauthall<br>
+<span style="color:blue;"><code>attack [beacon] [deauth] [deauthall] [probe] [nooutput] [-t &lt;timeout&gt;]</code></span> <br>
+Bắt đầu tấn công với các tham số đã cho (bắt buộc phải có 1 tham số trở lên):<br>
+deauth [-d] (tùy chọn, mặc định = false)<br>
+deauthall [-da] (tùy chọn, mặc định = false)<br>
+nooutput [-no] (tùy chọn, mặc định = false): Sẽ ngừng in các gói mỗi giây.<br>
+thời gian chờ [-t] (tùy chọn, mặc định = theo thời gian trong mục cài đặt): Sẽ thay đổi thời gian chờ tấn công trong cài đặt.<br>
+XIN LƯU Ý rằng deauthall sẽ hủy kích hoạt deauth và ngược lại.<br>
+Bạn chỉ có thể chạy một lúc!<br>
+<br>
+
+<span style="color:blue;"><code>attack status [&lt;on/off&gt;]</code></span> <br>
+Bật hoặc tắt tính năng hiển thị trạng thái tấn công (pkts/s) mỗi giây (chỉ khi một cuộc tấn công đang diễn ra).<br>
+<br>
+<span style="color:blue;">sysinfo</span> <br>
+In ra mức sử dụng RAM, kênh WiFi hiện tại, địa chỉ MAC, SPIFFS (mức sử dụng SPI-Flash-File-System và các tệp.<br>
+<br>
+<span style="color:blue;">clear</span> <br>
+Xóa bảng điều khiển nối tiếp.<br>
+<br>
+<span style="color:blue;">format</span> <br>
+Xóa tất cả các tệp trong SPIFFS (SPI-Flash-File-System).<br>
+<br>
+<span style="color:blue;"><code>print &lt;file&gt; [lines]</code></span> <br>
+lines [-l] (tùy chọn, mặc định = false): Hiển thị số dòng.<br>
+In một tệp từ SPIFFS (SPI-Flash-File-System) sang bảng điều khiển nối tiếp.<br>
+<br>
+<span style="color:blue;"><code>delete &lt;file&gt;</code></span> <br>
+Xóa tệp khỏi SPIFFS (SPI-Flash-File-System).<br>
+<br>
+<span style="color:blue;"><code>delete &lt;file&gt; &lt;lineFrom&gt;</code></span> <br>
+Loại bỏ một dòng cụ thể từ một tập tin.<br>
+<br>
+<span style="color:blue;"><code>delete &lt;file&gt; &lt;lineFrom&gt; &lt;lineTo&gt;</code></span> <br>
+Loại bỏ các dòng cụ thể từ một tập tin.<br>
+Số dòng đầu tiên là 0!<br>
+<br>
+<span style="color:blue;"><code>replace &lt;file&gt; &lt;line&gt; &lt;new-content&gt;</code></span> <br>
+Thay thế các dòng cụ thể của tệp bằng nội dung đã cho.<br>
+
+<span style="color:blue;"><code>copy &lt;file&gt; &lt;newfile&gt;</code></span> <br>
+Tạo một bản sao của tệp trong SPIFFS.<br>
+<br>
+<span style="color:blue;"><code>rename &lt;file&gt; &lt;newfile&gt;</code></span> <br>
+Đổi tên một tệp trong SPIFFS.<br>
+<br>
+<span style="color:blue;"><code>get &lt;setting&gt;</code></span> <br>
+In ra giá trị của cài đặt.<br>
+<br>
+<span style="color:blue;"><code>set &lt;setting&gt; &lt;value&gt;</code></span> <br>
+Thay đổi giá trị của cài đặt.<br>
+<br>
+<span style="color:blue;">reset</span> <br>
+Đặt lại cài đặt.<br>
+
+<span style="color:blue;"><code>stop [&lt;all/scan/attack/script&gt;]</code></span> <br>
+Dừng các nhiệm vụ đang diễn ra.<br>
+Chế độ (tùy chọn, mặc định = tất cả):<br>
+<br>
+tất cả (-a)<br>
+quét (-sc)<br>
+tấn công (-a)<br>
+script - kịch bản<br>
+<br>
+<span style="color:blue;">reboot</span> <br>
+Thực hiện thiết lập lại cứng (giống như kết nối chân RST với GND).<br>
+<br>
+<span style="color:blue;"><code>run &lt;file&gt; [-c &lt;continue-time&gt;]</code></span> <br>
+Thực thi tập lệnh với khác ngay bây giờ (không phải autostart.txt).<br>
+continue [-c] (tùy chọn, tối thiểu=1 giây, thời gian mặc định là 10 giây): Bao nhiêu giây cho đến khi chạy lại tập lệnh.<br>
+Vui lòng không sử dụng lệnh này trong tập lệnh! Nó sẽ không hoạt động, nhưng nó có thể dẫn đến lỗi hoặc hành vi không mong muốn.<br>
+<br>
+<span style="color:blue;"><code>write &lt;file&gt; &lt;commands&gt;</code></span> <br>
+Viết (nối thêm) một lệnh vào tệp đã cho và lưu nó.<br>
+Xin lưu ý rằng lệnh này, giống như tất cả các lệnh, có giới hạn 512 ký tự và do đó, không được sử dụng để ghi các tệp mở rộng.<br>
+<br>
+<span style="color:blue;">info</span> <br>
+Hiển thị số phiên bản, thông tin bản quyền.<br>
+<br>
+Ngắt kết nối địa chỉ MAC cụ thể của wifi, thiết bị, lý do ngắt kết nối (1-25), trên kênh( 1-11)<br>
+<span style="color:blue;"><code>send deauth &lt;AP-MAC&gt; &lt;ST-MAC&gt; &lt;reason&gt; &lt;channel&gt;</code></span> <br>
+Gửi một gói duy nhất với các tham số đưa ra. <br>
+Bạn cũng có thể gửi các gói tùy chỉnh với: send packet <packet><br>
+Gói phải là một chuỗi thập lục phân chia cho :và có số 0 đứng đầu.<br>
+Chỉ nên sử dụng tính năng này nếu bạn có kinh nghiệm về cách xử lý việc gửi các gói được xác định tùy chỉnh.<br>
+Ngoài ra, lưu ý rằng bạn vẫn bị giới hạn ở 512 ký tự cho mỗi lệnh!<br>
+<br>
+<span style="color:blue;"><code>delay &lt;time&gt;</code></span> <br>
+Sẽ tạm dừng giao diện lệnh nối tiếp trong một thời gian nhất định.<br>
+delay 1000sẽ đợi một giây.<br>
+Nhưng bạn cũng có thể chỉ định trực tiếp thời gian trễ tính bằng giây:<br>
+delay 1s.<br>
+<br>
+<span style="color:blue;"><code>startap [-p &lt;path][-s &lt;ssid&gt;] [-pswd &lt;password&gt;] [-ch &lt;channel&gt;] [-h] [-cp]</code></span> <br>
+Bắt đầu mạng wifi.<br>
+<br>
+ssid [-s] (tùy chọn, mặc định = cài đặt ssid ): Tên mạng.<br>
+mật khẩu [-pswd] (tùy chọn, mặc định = mật khẩu cài đặt ): Mật khẩu.<br>
+kênh [-ch] (tùy chọn, mặc định = kênh cài đặt ): Kênh .<br><br>
+<span style="color:blue;">stopap</span><br>
+Dừng mạng wifi.<br>
 <h1> Hướng Dẫn Nâng Cấp Thủ Công</h1>
 <p> Mình chuyển đổi sang server mới, nên những bạn sở hữu phần mềm cũ từ 6.3 trở về trước, thiết bị sẽ không thể tự động update được nữa.</p><p>Các bạn vui lòng nạp lại file mới để có thể tiếp tục được hỗ trợ update tự động và lâu dài theo hướng dẫn dưới đây.</p><br>
 <li>Bạn tải Driver, chương trình ESP8266Flasher và phần mềm đăng ký key cho thiết bị:</li> 
