@@ -492,7 +492,7 @@ input[type="file"] {
 <body>
 
 <div id="content">
-<p class="tab blink"><span style="color:red;">Phiên bản phần mềm 7.0 - Phát hành 25.12.2022</span></p>
+<p class="tab blink"><span style="color:red;">Phiên bản 7.0 | Phát hành 01.01.2023</span></p>
 <p><p>Quý khách có nhu cầu mua hàng vui lòng bấm vào link <a href="https://shope.ee/7pIlDS3t5c" target="_blank">Shopee.vn/244v234</a></p>
 <h1>Giới thiệu</h1>
 <p>- Thiết bị này là công cụ kiểm tra an ninh mạng wifi nhà bạn và mô phỏng kỹ thuật lừa đảo xã hội. <!--- Được <span style="color:red;">Vuong234</span> phát triển dựa trên mã nguồn mở với ít lỗi hơn và nhiều chức năng hơn.</p> -->
@@ -556,15 +556,19 @@ input[type="file"] {
 <p>
 <li>Đây là tính năng nâng cao, dành cho khách hàng muốn có những trải nghiệm mới lạ với thiết bị.<br></li>
 <li>Bạn sẽ sử dụng câu lệnh để điều khiển thiết bị thay vì thao tác trên giao diện web.<br> </li>
-<li>Đặc biệt bạn có thể viết kịch bản, và thiết bị sẽ thực hiện theo mỗi khi thiết bị khởi động.<br></li>
-<li>Giải thích thêm về khả năng thực hiện theo kịch bản: Mỗi khi thiết bị khởi động, nó sẽ đọc tất cả các lệnh được lưu trong tệp <span style="color:red;">autostart.txt</span><br><br></li>
+<li>Đặc biệt bạn có thể viết kịch bản, và thiết bị sẽ thực hiện theo.<br></li>
+<li>Bạn có thể viết nhiều kịch bản khác nhau, và lưu chúng dưới dạng <span style="color:red;">tenkichban.txt</span><br></li>
+<li>Nếu bạn muốn mỗi khi thiết bị khởi động, sẽ chạy luôn kịch bản thì hãy lưu kịch bản vào file <span style="color:red;">autostart.txt</span><br></li>
 Ví dụ, tôi muốn mỗi khi thiết bị khởi động, nó sẽ tự tìm kiếm mạng wifi xung quanh, cứ 60 giây tự tìm kiếm lại, sau đó ngắt kết nối tất cả các mạng wifi đã tìm được.<br>
 Gõ lệnh:<br>
-<span style="color:blue;">write autostart.txt scan ap -c 60s</span> "nhấn phím enter"<br>
-<span style="color:blue;">write autostart.txt attack -da</span> "nhấn phím enter"<br>
-<br>Muốn xem <span style="color:red;">autostart.txt</span> đang có nhưng lệnh nào bạn gõ:<br>
-<span style="color:blue;">print autostart.txt</span>  "nhấn phím enter"<br><br><br>
-Để xem danh sách lệnh hiện có bạn gõ: <span style="color:blue;">help </span> "nhấn phím enter"<br>
+<span style="color:blue;"> write autostart.txt scan ap -c 60s</span> "nhấn phím enter"<br>
+<span style="color:blue;"> write autostart.txt attack -da</span> "nhấn phím enter"<br>
+<br>Muốn xem <span style="color:red;"> autostart.txt</span> đang có nhưng lệnh nào bạn gõ:<br>
+<span style="color:blue;"> print autostart.txt</span>  "nhấn phím enter"<br><br>
+Để xem danh sách lệnh hiện có, cũng như các ví dụ bạn gõ: <span style="color:blue;">help </span> "nhấn phím enter"<br><br>
+Muốn xoá kịch bản đã lưu, gõ lệnh: <span style="color:blue;">delete tenkichban.txt</span><br>
+</p>
+<!----
 <h3>Dưới đây là danh sách lệnh hiện có của thiết bị</h3>
 <span style="color:blue;"><code>scan [&lt;all/aps/stations/wifi&gt;] [-t &lt;time&gt;] [-c &lt;continue-time&gt;] [-ch &lt;channel&gt;]</code></span><br>
 Bắt đầu quét với các tham số đã cho.<br>
@@ -707,7 +711,7 @@ tấn công (-a)<br>
 script - kịch bản<br>
 <br>
 <span style="color:blue;">reboot</span> <br>
-Thực hiện thiết lập lại cứng (giống như kết nối chân RST với GND).<br>
+Khởi động lại thiết bị.<br>
 <br>
 <span style="color:blue;"><code>run &lt;file&gt; [-c &lt;continue-time&gt;]</code></span> <br>
 Thực thi tập lệnh với khác ngay bây giờ (không phải autostart.txt).<br>
@@ -731,18 +735,19 @@ Ngoài ra, lưu ý rằng bạn vẫn bị giới hạn ở 512 ký tự cho m�
 <br>
 <span style="color:blue;"><code>delay &lt;time&gt;</code></span> <br>
 Sẽ tạm dừng giao diện lệnh nối tiếp trong một thời gian nhất định.<br>
-delay 1000sẽ đợi một giây.<br>
+delay 1000 = một giây.<br>
 Nhưng bạn cũng có thể chỉ định trực tiếp thời gian trễ tính bằng giây:<br>
 delay 1s.<br>
 <br>
-<span style="color:blue;"><code>startap [-p &lt;path][-s &lt;ssid&gt;] [-pswd &lt;password&gt;] [-ch &lt;channel&gt;] [-h] [-cp]</code></span> <br>
-Bắt đầu mạng wifi.<br>
+<span style="color:blue;"><code>startap</code></span> <br>
+Mở lại mạng wifi điều khiển.<br>
 <br>
 ssid [-s] (tùy chọn, mặc định = cài đặt ssid ): Tên mạng.<br>
 mật khẩu [-pswd] (tùy chọn, mặc định = mật khẩu cài đặt ): Mật khẩu.<br>
 kênh [-ch] (tùy chọn, mặc định = kênh cài đặt ): Kênh .<br><br>
 <span style="color:blue;">stopap</span><br>
 Dừng mạng wifi.<br>
+---->
 <h1> Hướng Dẫn Nâng Cấp Thủ Công</h1>
 <p> Mình chuyển đổi sang server mới, nên những bạn sở hữu phần mềm cũ từ 6.3 trở về trước, thiết bị sẽ không thể tự động update được nữa.</p><p>Các bạn vui lòng nạp lại file mới để có thể tiếp tục được hỗ trợ update tự động và lâu dài theo hướng dẫn dưới đây.</p><br>
 <li>Bạn tải Driver, chương trình ESP8266Flasher và phần mềm đăng ký key cho thiết bị:</li> 
@@ -766,7 +771,7 @@ Dừng mạng wifi.<br>
 <li>Lúc này thiết bị sẽ tự kết nối về server của mình và đăng ký key mới cho thiết bị của bạn</li><br>
 <img width="20%" src="flash6.jpg"></img><br><br>
 <li>Bạn để ý đồng hồ xem lúc bạn bấm "Kết Nối" là mấy giờ, rồi nhắn messenger cho mình <a href="https://m.me/qcvfvn">https://m.me/qcvfvn</a>, đồng thời vào ứng dụng shopee chụp ảnh đơn hàng mua của bên mình.</li>
-<li>Nếu thông tin hợp lệ, đến 9h tối thiết bị của bạn sẽ được nâng cấp tự động lên phiên bản phần mềm 7.0 - Phát hành 25.12.2022</li>
+<li>Nếu thông tin hợp lệ, đến 9h tối thiết bị của bạn sẽ được nâng cấp tự động lên phiên bản phần mềm 7.0 - Phát hành 01.01.2022</li>
 <img width="20%" src="flash7.jpg"></img>
 <br><br>
 </div>
