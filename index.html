@@ -1,0 +1,785 @@
+<html class="translated-ltr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, minimal-ui">
+	<meta name="theme-color" content="#36393E">
+
+	<meta name="description" content="244v234">
+	<title>Mạch wifi cf789</title>
+<style>
+
+/* Global */
+body {
+	background: #ffffff;
+	color: #000000;
+	font-family: sans-serif;
+	margin: 0;
+}
+
+h1 {
+	font-size: 1.7rem;
+    margin-top: 1rem;
+    background: #e3e3e3;
+    color: #363636;
+    padding: 0.2em 1em;
+    border-radius: 3px;
+	border-left: solid #363636 5px;
+    font-weight: 100;
+}
+
+h2 {
+	font-size: 1.1rem;
+    margin-top: 1rem;
+    background: #e3e3e3;
+    color: #363636;
+    padding: 0.4em 1.8em;
+    border-radius: 3px;
+	border-left: solid #363636 5px;
+    font-weight: 100;
+}
+
+table{
+	border-collapse: collapse;
+}
+
+label{
+	line-height: 38px;
+}
+
+p{
+	margin: 0.5em 0;
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.bold {
+	font-weight: bold;
+}
+.red{
+	color: #ffffff;
+}
+.green{
+	color:#43B581;
+}
+.clear {
+	clear: both;
+}
+.centered{
+	text-align: center;
+}
+.select{
+	width: 98px !important;
+	padding: 0 !important;
+}
+.selected{
+	background: #54d64d;
+}
+.status{
+	width: 120px;
+	padding-left: 8px;
+}
+.labelFix {
+	line-height: 44px;
+}
+.clickable{
+	cursor: pointer;
+}
+.settingName{
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+#status {
+	text-align: center;
+	text-transform: capitalize;
+	padding: 5px;
+	color: #fff;
+	position: sticky;
+	top: 0;
+	z-index: 99;
+}
+
+#closeError{
+	float: right;
+	color: #fff;
+	padding: 0px 10px;
+	cursor: pointer;
+}
+
+#dieu-khoan {
+    width: 50%;
+    height: 100px;
+    border: 1px solid #000;
+}
+
+footer {
+	font-size: .95em;
+	text-align: center;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+/* ===== CHECKBOX ===== */
+/* Customize the label (the container) */
+.checkBoxContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 32px;
+}
+
+/* Hide the browser's default checkbox */
+.checkBoxContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  height: 28px;
+  width: 28px;
+  background-color: #7a7a7a;
+  border-radius: 4px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkBoxContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+
+.checkBoxContainer .checkmark:after {
+  left: 10px;
+  top: 7px;
+  width: 4px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* ERROR */
+.hide {
+	display: none;
+}
+
+.show {
+	display: block !important;
+	animation-name: fadeIn;
+	animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+	0%   {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+
+hr {
+	background: #3e4146;
+}
+
+a {
+	color: #5281bb;
+    text-decoration: none;
+}
+
+a:hover {
+	color: #95b8e4;
+}
+
+li{
+	margin: 4px 0;
+}
+
+/* Meter */
+.meter_background{
+	background: #42464D;
+	width: 100%;
+	word-break: normal;
+	min-width: 100px;
+}
+.meter_forground{
+	color: #fff;
+	padding: 4px 0;
+	/* + one of the colors below
+	(width will be set by the JS) */
+}
+.meter_green{
+	background: #43B581;
+}
+.meter_orange{
+	background: #FAA61A;
+}
+.meter_red{
+	background: #F04747;
+}
+.meter_value{
+	padding-left: 8px;
+}
+
+
+/* Tables */
+table {
+	width: 100%;
+	min-width: 400px;
+	margin-bottom: 2em;
+}
+
+td{
+	word-break: break-all;
+}
+
+th{
+	word-break: break-word;
+}
+
+th, td {
+    padding: 10px 6px;
+	text-align: left;
+    border-bottom: 1px solid #5d5d5d;
+}
+
+@media screen and (max-width: 820px) {
+	#apTable .id,
+	#apTable .enc,
+	#apTable .mac,
+	#apTable .vendor,
+	#apTable .name,
+
+	#stTable .id,
+	#stTable .pkts,
+	#stTable .lastseen,
+	#stTable .mac,
+
+	#nTable .id,
+	#nTable .vendor,
+	#nTable .ap,
+	#nTable .mac,
+
+	#passwordTable .verify,
+
+	#ssidTable .id	{
+	  display: none;
+	}
+
+	.meter_background{
+		min-width: 45px;
+	}
+}
+
+nav {
+	display: block;
+	background: #ffffff;
+	font-weight: bold;
+	padding: 0 10px;
+}
+  
+nav a {
+	color: inherit;
+	padding: 0 .5em;
+}
+
+.menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	display:block;
+}
+
+.menu li {
+	margin: 10px 20px 10px 0;
+	display: inline-block;
+}
+
+.menu li:last-child {
+	float: right;
+}
+
+/* Inputs and buttons */
+.upload-script, .button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+	display: inline-block;
+	height: 38px;
+	padding: 0 20px;
+	color:#fff;
+	text-align: center;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 38px;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	white-space: nowrap;
+	background: #747780;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+	background: #5170cf;
+}
+button:active, input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active {
+	transform: scale(.93);
+}
+button:disabled:hover, input[type="submit"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="button"]:disabled:hover {
+	background: white;
+	cursor: not-allowed;
+	opacity: 0.40;
+	filter: alpha(opacity=40);
+	transform: scale(1);
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+/* Forms */
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea, select {
+	height: 38px;
+	padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+	background-color: #757575;
+	border-radius: 4px;
+	box-shadow: none;
+	box-sizing: border-box;
+	color: #ffffff;
+	border: none;
+	width: 5em;
+}
+
+input[type="text"]{
+	width: 10em;
+}
+
+.setting {
+	width: 100% !important;
+	max-width: 284px !important;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* ==== GRID SYSTEM ==== */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1140px;
+}
+
+.row {
+  position: relative;
+  width: 100%;
+}
+
+.row [class^="col"] {
+  float: left;
+  margin: 0.25rem 2%;
+  min-height: 0.125rem;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+  width: 96%;
+}
+
+.row::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.hidden-sm {
+  display: none;
+}
+
+@media only screen and (min-width: 24em) {
+  .col-1 {
+    width: 4.33%;
+  }
+
+  .col-2 {
+    width: 12.66%;
+  }
+
+  .col-3 {
+    width: 21%;
+  }
+
+  .col-4 {
+    width: 29.33%;
+  }
+
+  .col-5 {
+    width: 37.66%;
+  }
+
+  .col-6 {
+    width: 46%;
+  }
+
+  .col-7 {
+    width: 54.33%;
+  }
+
+  .col-8 {
+    width: 62.66%;
+  }
+
+  .col-9 {
+    width: 71%;
+  }
+
+  .col-10 {
+    width: 79.33%;
+  }
+
+  .col-11 {
+    width: 87.66%;
+  }
+
+  .col-12 {
+    width: 96%;
+  }
+
+  .hidden-sm {
+    display: block;
+  }
+}
+
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2681486354588893"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="content">
+<p class="tab blink"><span style="color:red;">Phiên bản 8.0 | Phát hành 19.01..2023</span></p>
+<p><p>Quý khách có nhu cầu mua hàng vui lòng bấm vào link <a href="https://shope.ee/7pIlDS3t5c" target="_blank">Shopee.vn/244v234</a></p>
+<h1>Giới thiệu</h1>
+<p>- Thiết bị này là công cụ kiểm tra an ninh mạng wifi nhà bạn và mô phỏng kỹ thuật lừa đảo xã hội. <!--- Được <span style="color:red;">Vuong234</span> phát triển dựa trên mã nguồn mở với ít lỗi hơn và nhiều chức năng hơn.</p> -->
+<p>- Bạn cũng có thể sử dụng thiết bị này để hạn chế những người hàng xóm hát karaoke vô ý thức, gây ảnh hưởng đến học tập, sinh hoạt, cũng như giấc ngủ của bạn và gia đình.</p>
+<p>- Ngắt kết nối wifi điện thoại, máy tính bảng của con cháu, để hạn chế các cháu chơi game, lên mạng quá nhiều, xao nhãng học hành.</p>
+<h1>Các tính năng chính.</h1>
+<li>Ngắt kết nối wifi của những người hàng xóm hát karaoke vô ý thức.</li><br>
+<li>Biết được mạng đó có những thiết bị nào đang kết nối, ngắt riêng lẻ từng thiết bị (điện thoại, laptop, smartTV, máy tính bảng,...) đang kết nối với mạng wifi đó, thay vì ngắt nguyên 1 mạng wifi.</li><br>
+<li>Ngắt kết nối wifi của trẻ con, để hạn chế chúng sử dụng mạng internet quá nhiều.</li><br>
+<li>Phát hiện những thiết bị đang dùng trộm wifi nhà bạn.</li><br>
+<li>Tìm được tất các mạng wifi ẩn.</li><br>
+<li>L*y mật khẩu wifi của những mạng wifi trong phạm vi hoạt động.</li><br>
+<li>L*y tài khoản Facebook, Google, Zalo, Garena, TikTok, Instagram.</li><br>
+<li>Spam tất cả các mạng wifi tìm được, hoặc tạo mạng wifi ảo theo ý bạn.</li><br>
+<li>Viết kịch bản để thiết bị tự động thực hiện theo mà bạn không cần thao tác gì thêm.</li><br>
+<li>Ngắt kết nối riêng biệt một hoặc nhiều thiết bị đang kết nối của mạng wifi bất kỳ.</li><br>
+<li>Phát hiện mạch wifi789 đang ngắt kết nối wifi gần đó.</li><br>
+<li>Tự động ngắt kết nối tất cả các mạng wifi xung quanh, cứ 60 giây tự động làm mới danh sách một lần.</li><br>
+<li>Có thể tắt wifi điều khiển sau khi bấm "Ngắt Kết Nối" để tránh gây sự chú ý của những người hát karaoke vô ý thức.</li><br>
+<li>Đổi tên wifi điều khiển tuỳ ý.</li><br>
+<li>Mở rộng phạm vi sóng wifi nhà bạn.</li><br>
+<li>Được update thường xuyên các tính năng mới, cũng như cập nhật danh sách các nhà sản xuất phần cứng.</li><br>
+<li>Có đèn thông báo trạng thái hoạt động.</li><br>
+<marquee>Mua hàng vui lòng truy cập <a href="https://shope.ee/7pIlDS3t5c" target="_blank">Shopee.vn/244v234</a></marquee>
+<p><span style="color:red;">LƯU Ý:</span> dưới đây là video giới thiệu tính năng của phiên bản 6.7 (Phiên bản các bạn nhận hàng đã được nạp sẵn 8.0)</p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/keuA33258ho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h1>Hướng dẫn sử dụng:</h1>
+
+<p>1. Cấp nguồn cho thiết bị bằng sạc dự phòng, hoặc cục sạc điện thoại thông thường.<br>
+2. Kết nối với wiﬁ <span style="color:red;">244v234</span> do thiết bị phát ra, mật khẩu: <span style="color:red;">abcd1234</span><br>
+3. Sau khi kết nối thành công, mở ứng dụng duyệt web: chrome, safari, ﬁrefox,opera...... Sau đó truy cập vào <span style="color:red;">1.2.3.4</span>(Trong trường hợp bạn truy 1.2.3.4 nhưng không hiện giao diện điều khiển. Vui lòng vào web ở chế độ riêng tư - hay còn gọi là ẩn danh.)<br>
+<img width="65%" src="1.png"></img><br><br><br>
+5. Nếu muốn tìm lại các mạng wifi xung quanh, bấm vào “TÌM KIẾM WIFI XUNG QUANH”. Sau đó tích vào các mạng wifi mà bạn muốn "Ngắt kết nối". Sau đó bấm vào mục "Tính Năng"(nếu muốn l*y mật khẩu wifi, bạn chỉ được tích vào 1 mạng duy nhất).<br>
+<img width="65%" src="2.jpg"></img><br><br><br>
+6. Bấm “START” ở tính năng "Ngắt Kết Nối". Lúc này đèn led trên thiết bị sẽ sáng lên. Và những người hát karaoke vô ý thức sẽ bị mất kết nối wifi nhà họ. Sau đó bạn bấm "TẮT WIFI ĐIỀU KHIỂN" để tránh sự nhòm ngó của những người hát karaoke vô ý thức.<br>
+<marquee>Mua hàng vui lòng truy cập <a href="https://shope.ee/7pIlDS3t5c" target="_blank">Shopee.vn/244v234</a></marquee>
+<img width="65%" src="3.jpg"></img><br><br><br>
+7. Nếu bấm "START" ở tính năng "l*y Mật Khẩu", wifi điều khiển 244v234 sẽ biến mất, và sinh ra wifi nhái giống với wifi bạn chọn, để dụ hàng xóm truy cập.<br><br>- Nếu hàng xóm không nhập chính xác mật khẩu wifi nhà họ, thì wifi nhà họ sẽ bị ngắt kết nối liên tục.<br><br>
+- Còn nếu hàng xóm nhập chính xác mật khẩu wifi nhà họ, wifi nhái sẽ biến mất. Và lúc này wifi nhà họ sẽ sử dụng được bình thường.<br><br>
+- Nếu bạn muốn xem mật khẩu đã l*y được, bạn rút nguồn ra cắm lại, lúc này wifi điều khiển 244v234 sẽ hiện lên. Bạn truy cập vào giao diện điều khiển, và vào mục "Mật Khẩu Wifi" để xem mật khẩu wifi đã l*y được.<br><br>
+8. Tính năng lấy TK Facebook, Google, Garena, Zalo, TikTok, Instagram chỉ mang tính chất giáo dục. Bạn tuyệt đối không dùng tính năng này cho mục đích xấu.<br><br>
+<img width="65%" src="5.jpg"></img>
+</p>
+<br><h2>Giao diện l*y mật khẩu Wifi và tài khoản Facebook, Google, Garena, Zalo, TikTok</h2><br><br>
+<p>
+<img width="30%" src="4.PNG"></img> <img width="30%" src="6.PNG"></img>
+<br><h2>Giao diện l*y tài khoản Facebook, Google, Garena</h2><br>
+<img width="30%" src="7.PNG"></img> <img width="30%" src="8.PNG"></img> <img width="30%" src="9.PNG"></img><br>
+<br><h2>Giao diện l*y tài khoản Zalo, TikTok, và mật khẩu thu được</h2><br>
+<img width="30%" src="10.PNG"></img> <img width="30%" src="11.PNG"></img> <img width="30%" src="12.PNG"></img><br>
+<br><br>
+</p>
+<h1>Lưu Ý:</h1>
+	<p>-    Bạn nên thử với wifi nhà bạn trước, để hiểu cách thức hoạt động của thiết bị.</p>
+	<p>-	Hướng anten của thiết bị về phía nhà hàng xóm.</p>
+	<p>-	Số âm ở cột sóng càng nhỏ (màu xanh lá), thì modem wiﬁ hàng xóm càng gần với bạn.</p>
+	<p>-	19h - 22h là thời điểm l*y mật khẩu wiﬁ hiệu quả nhất! Vì thời điểm này nhà hàng xóm có nhiều người đang kết nối wiﬁ.</p>
+	<p>-	Cần tư vấn hoặc hỗ trợ vui lòng nhắn messenger cho mình <a href="https://shope.ee/7pIlDS3t5c">https://shope.ee/7pIlDS3t5c</a></p>
+<marquee>Mua hàng vui lòng truy cập <a href="https://shope.ee/7pIlDS3t5c" target="_blank">Shopee.vn/244v234</a></marquee>
+<h1>Cách phòng tránh:</h1>
+<li>Sử dụng modem với chuẩn wifi AC</li>
+<li>Bật tính năng xác thực 2 bước cho các tài khoản mạng xã hội như Facebook, Google,...</li>
+<li>Hạn chế sử dụng mạng wifi miễn phí, wifi nơi công cộng,...</li>
+<li>Không bấm và đăng nhập tài khoản vào các đường link lạ.</li>
+<li>Không cung cấp thông tin tài khoản cá nhân, tài khoản ngân hàng, số CCCD, số CMND, mã OTP cho những người gọi đến hoặc tin nhắn tự xưng là cơ quan điều tra, toà án, hoặc nhân viên ngân hàng,...</li>
+<li>Không tải và cài đặt các file, ứng dụng không rõ nguồn gốc.</li>
+<p class="tab blink"><span style="color:red;"><span style="color:red;">Vui lòng sử dụng có trách nhiệm, chỉ sử dụng khi thực sự cần thiết!</span></p>
+<h1>Tính Năng Dòng Lệnh</h1>
+<p>
+<li>Đây là tính năng nâng cao, dành cho khách hàng muốn có những trải nghiệm mới lạ với thiết bị.<br></li>
+<li>Bạn sẽ sử dụng câu lệnh để điều khiển thiết bị thay vì thao tác trên giao diện web.<br> </li>
+<li>Đặc biệt bạn có thể viết kịch bản, và thiết bị sẽ thực hiện theo.<br></li>
+<li>Bạn có thể viết nhiều kịch bản khác nhau, và lưu chúng dưới dạng <span style="color:red;">tenkichban.txt</span><br></li>
+<li>Nếu bạn muốn mỗi khi thiết bị khởi động, sẽ chạy luôn kịch bản thì hãy lưu kịch bản vào file <span style="color:red;">autostart.txt</span><br></li>
+Ví dụ, tôi muốn mỗi khi thiết bị khởi động, nó sẽ tự tìm kiếm mạng wifi xung quanh, cứ 60 giây tự tìm kiếm lại, sau đó ngắt kết nối tất cả các mạng wifi đã tìm được.<br>
+Gõ lệnh:<br>
+<span style="color:blue;"> write autostart.txt scan ap -c 60s</span> "nhấn phím enter"<br>
+<span style="color:blue;"> write autostart.txt attack -da</span> "nhấn phím enter"<br>
+<br>Muốn xem <span style="color:red;"> autostart.txt</span> đang có nhưng lệnh nào bạn gõ:<br>
+<span style="color:blue;"> print autostart.txt</span>  "nhấn phím enter"<br><br>
+Để xem danh sách lệnh hiện có, cũng như các ví dụ bạn gõ: <span style="color:blue;">help </span> "nhấn phím enter"<br><br>
+Muốn xoá kịch bản đã lưu, gõ lệnh: <span style="color:blue;">delete tenkichban.txt</span><br>
+</p>
+<!----
+<h3>Dưới đây là danh sách lệnh hiện có của thiết bị</h3>
+<span style="color:blue;"><code>scan [&lt;all/aps/stations/wifi&gt;] [-t &lt;time&gt;] [-c &lt;continue-time&gt;] [-ch &lt;channel&gt;]</code></span><br>
+Bắt đầu quét với các tham số đã cho.<br>
+Chế độ (tùy chọn, mặc định = tất cả):<br>
+(-a) tất cả <br>
+(-ap)chỉ tìm kiếm wifi <br>
+(-st)chỉ tìm kiếm các thiết bị đang kết nối<br>
+(-w) tìm wifi và các thiết bị đang kết nối với nó<br>
+Chế độ phải là tham số đầu tiên! time [-t] (tùy chọn, mặc định = 15s): Khoảng thời gian nó sẽ quét các thiết bị đang kết nối với wifi (thiết bị khách) tính bằng giây.<br>
+continue [-c] (tùy chọn): Bao nhiêu giây cho đến khi quét lại.<br>
+channel [-ch] (tùy chọn): Chỉ quét trên một kênh cụ thể thay vì tự động duyệt qua chúng.<br>
+Để quét vô thời hạn, hãy đặt thời gian thành 0, tức là scan stations -t 0.<br>
+Sự khác biệt giữa chế độ stations và chế độ wifi là chế độ stations sẽ chỉ quét trên các kênh được sử dụng bởi ít nhất một mạng wifi.<br>
+Chế quét wifi cũng không yêu cầu quét mạng wifi trước và được khuyến nghị sử dụng tính năng giám sát gói và phát hiện deauth.<br>
+<br>
+<span style="color:blue;"><code>show [&lt;all/aps/stations/names/ssids&gt;]</code></span> <br>
+<span style="color:blue;"><code>show selected [&lt;all/aps/stations/names/ssids&gt;]</code></span> <br>
+In kết quả quét (mạng wifi và thiết bị đang kết nối với wifi), tên thiết bị đã lưu.<br>
+Đã chọn (tùy chọn, mặc định = sai): Chỉ các mục tiêu đã chọn được in.<br>
+Các loại (tùy chọn, mặc định = tất cả):<br>
+tất cả (-a)<br>
+áp (-ap)<br>
+thiết bị đang kết nối với wifi (-st)<br>
+tên (-b)<br>
+ssid (-ss)<br>
+<br>
+<span style="color:blue;"><code>select [&lt;all/aps/stations/names&gt;] [&lt;id&gt;]</code></span> <br>
+<span style="color:blue;"><code>deselect [&lt;all/aps/stations/names&gt;] [&lt;id&gt;]</code></span> <br>
+(De)Chọn một hoặc tất cả các mạng wifi, thiết bị đang kết nối với wifi và tên thiết bị đã lưu.<br>
+Các loại (tùy chọn, mặc định = tất cả):<br>
+tất cả (-a)<br>
+áp (-ap)<br>
+thiết bị đang kết nối với wifi (-st)<br>
+tên (-b)<br>
+ID (tùy chọn): ID của wifi/thiết bị đang kết nối với wifi/thiết bị bạn muốn chọn.<br><br>
+
+<br>
+<span style="color:blue;"><code>add name &lt;name&gt; -ap &lt;id&gt; [-s] [-f]</code></span> <br>
+<span style="color:blue;"><code>add name &lt;name&gt; -st &lt;id&gt; [-s] [-f]</code></span> <br>
+<span style="color:blue;"><code>add name &lt;name&gt; -m &lt;mac&gt; [-ch &lt;channel&gt;] [-b &lt;bssid&gt;] [-s] [-f]</code></span> <br>
+Lưu thiết bị với tên và thông số đã cho.<br>
+name [-n] : Tên bạn muốn đặt cho thiết bị (tối đa 16 ký tự<br>
+ap [-ap] : Điểm truy cập muốn lưu.<br>
+thiết bị đang kết nối với wifi [-st] : Trạm bạn muốn lưu.<br>
+mac [-m] : Địa chỉ MAC của thiết bị.<br>
+kênh [-ch] (tùy chọn, mặc định = kênh hiện tại): Kênh thiết bị đang bật.<br>
+bssid [-b] (tùy chọn, mặc định = NULL): Địa chỉ MAC của mạng wifi được kết nối.<br>
+select [-s] (tùy chọn, mặc định = false): Chọn thiết bị sau khi thêm.<br>
+buộc [-f](tùy chọn, mặc định = false): Bắt buộc thêm tên, ngay cả khi danh sách đã đầy.<br>
+<br>
+
+<span style="color:blue;"><code>replace name &lt;id&gt; [-n &lt;name&gt;] [-m &lt;mac&gt;] [-ch &lt;channel&gt;] [-b &lt;bssid&gt;] [-s]</code></span> <br>
+Xóa tên có ID đã cho và tạo tên mới với các tham số đã cho.<br>
+<br>
+
+<span style="color:blue;"><code>set name &lt;id&gt; &lt;newname&gt;</code></span> <br>
+Thay đổi tên của thiết bị đã lưu.<br>
+id : ID của tên đã lưu mà bạn muốn thay đổi.<br>
+newname : Tên mới bạn muốn đặt cho thiết bị đó.<br>
+<br>
+<span style="color:blue;"><code>load [&lt;all/ssids/names/settings&gt;] [&lt;file&gt;]</code></span> <br>
+<span style="color:blue;"><code>save [&lt;all/ssids/names/settings&gt;] [&lt;file&gt;]</code></span> <br>
+Tải/lưu danh sách tên thiết bị và cài đặt.<br>
+Các loại (tùy chọn, mặc định = tất cả):<br>
+tất cả (-a)<br>
+tên (-n)<br>
+<br>
+<span style="color:blue;"><code>remove &lt;ap/station/name/ssid&gt; &lt;id&gt;</code></span> <br>
+Dùng để xoá :<br>
+ap (-ap) :mạng wifi<br>
+station (-st): các thiết bị đang kết nối.<br>
+name (-n): tên mà bạn đã đặt cho mạng wifi hoặc thiết bị nào đó.<br>
+<br>
+<span style="color:blue;"><code>remove &lt;ap/station/names/ssids&gt; [all]</code></span> <br>
+Xóa mọi thứ khỏi danh sách đã chọn.<br>
+all [-a] (tùy chọn, mặc định = true): Xóa tất cả.<br>
+<br>
+Ngắt kết nối: deauth và Ngắt kết nối tất cả deauthall<br>
+<span style="color:blue;"><code>attack [beacon] [deauth] [deauthall] [probe] [nooutput] [-t &lt;timeout&gt;]</code></span> <br>
+Bắt đầu tấn công với các tham số đã cho (bắt buộc phải có 1 tham số trở lên):<br>
+deauth [-d] (tùy chọn, mặc định = false)<br>
+deauthall [-da] (tùy chọn, mặc định = false)<br>
+nooutput [-no] (tùy chọn, mặc định = false): Sẽ ngừng in các gói mỗi giây.<br>
+thời gian chờ [-t] (tùy chọn, mặc định = theo thời gian trong mục cài đặt): Sẽ thay đổi thời gian chờ tấn công trong cài đặt.<br>
+XIN LƯU Ý rằng deauthall sẽ hủy kích hoạt deauth và ngược lại.<br>
+Bạn chỉ có thể chạy một lúc!<br>
+<br>
+
+<span style="color:blue;"><code>attack status [&lt;on/off&gt;]</code></span> <br>
+Bật hoặc tắt tính năng hiển thị trạng thái tấn công (pkts/s) mỗi giây (chỉ khi một cuộc tấn công đang diễn ra).<br>
+<br>
+<span style="color:blue;">sysinfo</span> <br>
+In ra mức sử dụng RAM, kênh WiFi hiện tại, địa chỉ MAC, SPIFFS (mức sử dụng SPI-Flash-File-System và các tệp.<br>
+<br>
+<span style="color:blue;">clear</span> <br>
+Xóa bảng điều khiển nối tiếp.<br>
+<br>
+<span style="color:blue;">format</span> <br>
+Xóa tất cả các tệp trong SPIFFS (SPI-Flash-File-System).<br>
+<br>
+<span style="color:blue;"><code>print &lt;file&gt; [lines]</code></span> <br>
+lines [-l] (tùy chọn, mặc định = false): Hiển thị số dòng.<br>
+In một tệp từ SPIFFS (SPI-Flash-File-System) sang bảng điều khiển nối tiếp.<br>
+<br>
+<span style="color:blue;"><code>delete &lt;file&gt;</code></span> <br>
+Xóa tệp khỏi SPIFFS (SPI-Flash-File-System).<br>
+<br>
+<span style="color:blue;"><code>delete &lt;file&gt; &lt;lineFrom&gt;</code></span> <br>
+Loại bỏ một dòng cụ thể từ một tập tin.<br>
+<br>
+<span style="color:blue;"><code>delete &lt;file&gt; &lt;lineFrom&gt; &lt;lineTo&gt;</code></span> <br>
+Loại bỏ các dòng cụ thể từ một tập tin.<br>
+Số dòng đầu tiên là 0!<br>
+<br>
+<span style="color:blue;"><code>replace &lt;file&gt; &lt;line&gt; &lt;new-content&gt;</code></span> <br>
+Thay thế các dòng cụ thể của tệp bằng nội dung đã cho.<br>
+
+<span style="color:blue;"><code>copy &lt;file&gt; &lt;newfile&gt;</code></span> <br>
+Tạo một bản sao của tệp trong SPIFFS.<br>
+<br>
+<span style="color:blue;"><code>rename &lt;file&gt; &lt;newfile&gt;</code></span> <br>
+Đổi tên một tệp trong SPIFFS.<br>
+<br>
+<span style="color:blue;"><code>get &lt;setting&gt;</code></span> <br>
+In ra giá trị của cài đặt.<br>
+<br>
+<span style="color:blue;"><code>set &lt;setting&gt; &lt;value&gt;</code></span> <br>
+Thay đổi giá trị của cài đặt.<br>
+<br>
+<span style="color:blue;">reset</span> <br>
+Đặt lại cài đặt.<br>
+
+<span style="color:blue;"><code>stop [&lt;all/scan/attack/script&gt;]</code></span> <br>
+Dừng các nhiệm vụ đang diễn ra.<br>
+Chế độ (tùy chọn, mặc định = tất cả):<br>
+<br>
+tất cả (-a)<br>
+quét (-sc)<br>
+tấn công (-a)<br>
+script - kịch bản<br>
+<br>
+<span style="color:blue;">reboot</span> <br>
+Khởi động lại thiết bị.<br>
+<br>
+<span style="color:blue;"><code>run &lt;file&gt; [-c &lt;continue-time&gt;]</code></span> <br>
+Thực thi tập lệnh với khác ngay bây giờ (không phải autostart.txt).<br>
+continue [-c] (tùy chọn, tối thiểu=1 giây, thời gian mặc định là 10 giây): Bao nhiêu giây cho đến khi chạy lại tập lệnh.<br>
+Vui lòng không sử dụng lệnh này trong tập lệnh! Nó sẽ không hoạt động, nhưng nó có thể dẫn đến lỗi hoặc hành vi không mong muốn.<br>
+<br>
+<span style="color:blue;"><code>write &lt;file&gt; &lt;commands&gt;</code></span> <br>
+Viết (nối thêm) một lệnh vào tệp đã cho và lưu nó.<br>
+Xin lưu ý rằng lệnh này, giống như tất cả các lệnh, có giới hạn 512 ký tự và do đó, không được sử dụng để ghi các tệp mở rộng.<br>
+<br>
+<span style="color:blue;">info</span> <br>
+Hiển thị số phiên bản, thông tin bản quyền.<br>
+<br>
+Ngắt kết nối địa chỉ MAC cụ thể của wifi, thiết bị, lý do ngắt kết nối (1-25), trên kênh( 1-11)<br>
+<span style="color:blue;"><code>send deauth &lt;AP-MAC&gt; &lt;ST-MAC&gt; &lt;reason&gt; &lt;channel&gt;</code></span> <br>
+Gửi một gói duy nhất với các tham số đưa ra. <br>
+Bạn cũng có thể gửi các gói tùy chỉnh với: send packet <packet><br>
+Gói phải là một chuỗi thập lục phân chia cho :và có số 0 đứng đầu.<br>
+Chỉ nên sử dụng tính năng này nếu bạn có kinh nghiệm về cách xử lý việc gửi các gói được xác định tùy chỉnh.<br>
+Ngoài ra, lưu ý rằng bạn vẫn bị giới hạn ở 512 ký tự cho mỗi lệnh!<br>
+<br>
+<span style="color:blue;"><code>delay &lt;time&gt;</code></span> <br>
+Sẽ tạm dừng giao diện lệnh nối tiếp trong một thời gian nhất định.<br>
+delay 1000 = một giây.<br>
+Nhưng bạn cũng có thể chỉ định trực tiếp thời gian trễ tính bằng giây:<br>
+delay 1s.<br>
+<br>
+<span style="color:blue;"><code>startap</code></span> <br>
+Mở lại mạng wifi điều khiển.<br>
+<br>
+ssid [-s] (tùy chọn, mặc định = cài đặt ssid ): Tên mạng.<br>
+mật khẩu [-pswd] (tùy chọn, mặc định = mật khẩu cài đặt ): Mật khẩu.<br>
+kênh [-ch] (tùy chọn, mặc định = kênh cài đặt ): Kênh .<br><br>
+<span style="color:blue;">stopap</span><br>
+Dừng mạng wifi.<br>
+---->
+<h1> Hướng Dẫn Nâng Cấp Thủ Công</h1>
+<p> Những bạn sở hữu phần mềm cũ từ 6.3 (2020) trở về trước, các bạn vui lòng update thủ công theo hướng dẫn dưới đây.</p><br>
+<li>Tải Driver, chương trình ESP8266Flasher và phần mềm đăng ký key cho thiết bị:</li> 
+<p> - Driver cho máy tính, tải về <a href="https://github.com/ngocthuong234/ngocthuong234/raw/main/CH34x_Install_Windows_v3_4.EXE">tại đây.</a></p>
+<p> - ESP8266Flasher cho Windows x86 (32 bit), tải về <a href="https://github.com/nodemcu/nodemcu-flasher/raw/master/Win32/Release/ESP8266Flasher.exe">tại đây.</a></p>
+<p> - ESP8266Flasher cho Windows x64 (64 bit), tải về <a href="https://github.com/ngocthuong234/ngocthuong234/raw/main/ESP8266Flasher.exe">tại đây.</a></p>
+<p> - Phần mềm đăng ký key cho thiết bị KeyServerSing.bin, tải về <a href="https://github.com/ngocthuong234/ngocthuong234/raw/main/KeyServerSing.bin">tại đây.</a></p>
+<li>Cài Driver sau đó mở chương trình ESP8266Flasher.exe</li><br>
+<img width="40%" src="flash1.jpg"></img><br><br>
+<li>Chọn vào "Config" - sau đó bấm vào bánh răng giống như hình dưới. Chọn file KeyServerSing.bin bạn vừa tải về.</li><br>
+<img width="40%" src="flash2.jpg"></img><br><br>
+<li>Chọn vào "Operation" - sau đó bấm vào COM port, chọn COM của bạn.</li><br>
+<li>Bấm vào FLASH giống như hình dưới</li><br>
+<img width="40%" src="flash3.jpg"></img><br><br>
+<li>Chờ chương trình nạp xong và hiển thị dấu tích màu xanh giống như hình dưới là xong.</li><br>
+<img width="40%" src="flash4.jpg"></img><br><br>
+<li>Sau khi nạp xong, bạn cấp nguồn cho thiết bị, và truy cập vào wifi 244v234 do thiết bị phát ra.</li><br>
+<li>Trong trường hợp điện thoại của không tự hiện giống hình dưới, bạn mở trình duyệt web rồi truy cập 1.2.3.4 là được.</li><br>
+<img width="20%" src="flash5.jpg"></img><br><br>
+<li>Bạn chọn mạng wifi nhà bạn, sau đó nhập chính xác mật khẩu và bấm vào "Kết Nối" là xong.</li><br>
+<li>Lúc này thiết bị sẽ tự kết nối về server của mình và đăng ký key mới cho thiết bị của bạn</li><br>
+<img width="20%" src="flash6.jpg"></img><br><br>
+<li>Rồi nhắn shopee cho mình <a href="https://shope.ee/7pIlDS3t5c">https://shopee.vn/244v234</a></li>
+<li>Nếu thông tin hợp lệ, thiết bị của bạn sẽ được nâng cấp tự động lên phiên bản phần mềm 7.0 |  Phát hành 01.01.2023</li>
+<br><br>
+</div>
+</body></html>
